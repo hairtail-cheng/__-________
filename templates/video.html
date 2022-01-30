@@ -1,0 +1,337 @@
+	<!DOCTYPE html>
+
+    <html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>你所热爱的</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Loading Bootstrap -->
+		<link href="../../media/static/css/bootstrap.css" rel="stylesheet">
+
+		<!-- Loading Stylesheets -->    
+		<link href="../../media/static/css/font-awesome.css" rel="stylesheet">
+		<link href="../../media/static/css/style.css" rel="stylesheet" type="text/css">
+
+		<!-- Loading Custom Stylesheets -->    
+		<link href="../../media/static/css/custom.css" rel="stylesheet">
+        <style>
+            .box-holder {
+    min-height: 600px !important;
+}
+        </style>
+  </head>
+
+<body style="" data-new-gr-c-s-check-loaded="14.1001.0" data-gr-ext-installed="">
+<input type="hidden" name="csrfmiddlewaretoken" value="QuyBx1uFztbYLkzysiktjQ2iOlNFCFImCZtrrkhIxtQyV7llDFQJwbUqs8i7t5rE">
+  	<div class="site-holder">
+  		<!-- this is a dummy text -->
+  		<!-- .navbar -->
+  		<nav class="navbar" role="navigation">
+
+  			<!-- Brand and toggle get grouped for better mobile display -->
+  			<div class="navbar-header">
+  				<a class="navbar-brand" href="#"><i class="fa fa-list btn-nav-toggle-responsive text-white"></i> <span class="logo">BILI<strong>BI</strong>LI <i class="fa fa-bookmark"></i></span></a>
+  			</div>
+
+  			<!-- Collect the nav links, forms, and other content for toggling -->
+
+            <script type="text/javascript">
+
+            window.onload = function (){
+
+                var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+        httpRequest.open('GET', 'http://127.0.0.1:8000/user/is_login/', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+        httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+        /**
+         * 获取数据后的处理程序
+         */
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                var json = httpRequest.responseText;//获取到json字符串，还需解析
+                json = jQuery.parseJSON(json)
+
+                document.getElementById('sp1').innerHTML = ' <img src="../../media/Image/default.png" class="user-avatar" style="width: 60px; height: 55px" id="img1">'+"&ensp;"+json['name1']+"&ensp;"
+                document.getElementById('img1').setAttribute("src", json['srcc'])
+            }
+        };
+        }
+            </script>
+
+  			<div class="collapse navbar-collapse">
+
+  				<ul class="nav navbar-nav user-menu navbar-right ">
+
+  					<li>
+
+
+                        <a onclick="window.open('../../user/login/', 'newwindow', 'height=200, width=500, top=250, left=1600, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no') " class="user dropdown-toggle" id="name-content">
+                        <span class="username" id="sp1">
+                        <img src="../../media/Image/default.png" class="user-avatar" style="width: 60px; height: 55px" id="img1">  看看左图  </span>
+                    </a>
+
+
+
+                    </li>
+
+
+  						</ul>
+  					</div><!-- /.navbar-collapse -->
+  				</nav> <!-- /.navbar -->
+
+  				<!-- .box-holder -->
+  				<div class="box-holder">
+
+  					<!-- .left-sidebar -->
+  					<div class="left-sidebar">
+  						<div class="sidebar-holder">
+  							<ul class="nav  nav-list">
+
+  								<!-- sidebar to mini Sidebar toggle -->
+  								<li class="nav-toggle">
+  									<button class="btn  btn-nav-toggle text-primary"><i class="fa fa-angle-double-left toggle-left"></i> </button>
+  								</li>
+
+
+  								<li class=""><a href="http://127.0.0.1:8000/user/home/" data-original-title="Dashboard"><i class="fa fa-dashboard"></i><span class="hidden-minibar"> 数据首页 </span></a></li>
+  								<li><a href="http://127.0.0.1:8000/data/all_up/" data-original-title="Top Navbar"><i class="fa fa-indent"></i><span class="hidden-minibar"> 全部up </span></a></li>
+
+
+  								<li><a href="http://127.0.0.1:8000/data/up_detail/" data-original-title="Icons"><i class="fa fa-truck"></i><span class="hidden-minibar"> UP主详情 </span></a></li>
+
+  								<li class="submenu">
+  									<a class="dropdown" href="http://127.0.0.1:8000/data/video/" data-original-title="Pages"><i class="fa fa-book"></i><span class="hidden-minibar"> 视频详细信息 </span></a>
+
+  								</li>
+
+  								<li class="submenu">
+  									<a class="dropdown" href="http://127.0.0.1:8000/data/up_update/" data-original-title="Utility"><i class="fa fa-tint"></i><span class="hidden-minibar"> 数据更新 </span></a>
+
+  								</li>
+
+
+
+  							</ul>
+  						</div>
+  					</div> <!-- /.left-sidebar -->
+
+  					<!-- .content -->
+  					<div class="content">
+  						<div class="row">
+  							<div class="col-md-12">
+
+  								<h3 class="page-header"><i class="fa fa-book"></i> 视频详细信息 <i class="fa fa-info-circle animated bounceInDown show-info"></i> </h3>
+
+  								<blockquote class="page-information hidden">
+  									<p>
+  										展示视频的进一步信息，加载会有点慢（）
+  									</p>
+  								</blockquote>
+
+  							</div>
+
+                            <form class="col-md-4" role="form" method="GET">
+                                  <div class="form-group">
+                                    <label for="bv">请输入BV</label>
+                                    <input type="text" class="form-control" name="bv" placeholder="请输入视频的BV号">
+                                  </div>
+
+                                  <button type="submit" class="btn btn-default">提交</button>   &nbsp;&nbsp;{{ result }}
+                            </form>
+
+  						</div>
+                        <div class="row" style="margin-top: 2em; display: {{ data.iss }}">
+                            <div class="col-md-6" style="display:flex;align-items: center; width: 800px">
+                                <img src="{{ data.pic }}" width="280px"  alt="" style="border:1px solid #999; margin-right: 20px; ">
+                                <div style="display: inline-block;margin-left: 1em">
+                                    <p style="margin-top: 1em"><h4 style="display: inline;font-weight: bolder">{{ data.title }}</h4>&emsp; {{ data.length }}</p>
+                                    <p style="margin-top: 1em"><h5 style="display: inline;font-weight: bolder"> 播放数 </h5>{{ data.play }}</p>
+                                    <p style="margin-top: 1em">{{ data.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="row" style="margin-top: 2em; display: {{ data.iss }}">
+                            <div class="col-md-4">
+                                <div>
+
+                                    <p></p><h4 style="display: inline;font-weight: bolder">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;弹幕词云 </h4><p></p>
+
+                                </div>
+                                <img src="data:image/png;base64,{{ data.img }}" width="500px">
+
+                            </div>
+                        </div>
+
+
+
+
+  						<div class="footer">Modify by dyc</div>
+
+  					</div> <!-- /.content -->
+
+  					<!-- .right-sidebar -->
+  					<div class="right-sidebar right-sidebar-hidden">
+  						<div class="right-sidebar-holder" style="overflow: hidden; outline: none;" tabindex="5000">
+
+  							<!-- @Demo part only The part from here can be removed till end of the @demo  -->
+  							<a href="screens.html" class="btn btn-danger btn-block">Logout </a>
+
+
+  							<h4 class="page-header text-primary text-center">
+  								Theme Options
+  								<a href="#" class="theme-panel-close text-primary pull-right"><strong><i class="fa fa-times"></i></strong></a>
+  							</h4>
+
+  							<ul class="list-group theme-options">
+  								<li class="list-group-item" href="#">
+  									<div class="checkbox">
+  										<label>
+  											<input type="checkbox" id="fixedNavbar" value=""> Fixed Top Navbar
+  										</label>
+  									</div>
+  									<div class="checkbox">
+  										<label>
+  											<input type="checkbox" id="fixedNavbarBottom" value=""> Fixed Bottom Navbar
+  										</label>
+  									</div>
+  									<div class="checkbox">
+  										<label>
+  											<input type="checkbox" id="boxed" value=""> Boxed Version
+  										</label>
+  									</div>
+
+  									<div class="form-group backgroundImage hidden">
+  										<label class="control-label">Paste Image Url and then hit enter</label>
+  										<input type="text" class="form-control" id="backgroundImageUrl">
+  									</div>
+				<!--
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" id="responsive" value=""> Disable Responsiveness
+					</label>
+				</div>
+			-->
+		</li>
+		<li class="list-group-item" href="#">Predefined Themes
+			<ul class="list-inline predefined-themes">
+				<li><a class="badge" style="background-color:#54b5df" data-color-primary="#54b5df" data-color-secondary="#2f4051" data-color-link="#FFFFFF"> &nbsp; </a></li>
+				<li><a class="badge" style="background-color:#d85f5c" data-color-primary="#d85f5c" data-color-secondary="#f0f0f0" data-color-link="#474747"> &nbsp; </a></li>
+				<li><a class="badge" style="background-color:#3d4a5d" data-color-primary="#3d4a5d" data-color-secondary="#edf0f1" data-color-link="#777e88"> &nbsp; </a></li>
+				<li><a class="badge" style="background-color:#A0B448" data-color-primary="#A0B448" data-color-secondary="#485257" data-color-link="#AFB5AA"> &nbsp; </a></li>
+				<li><a class="badge" style="background-color:#2FA2D1" data-color-primary="#2FA2D1" data-color-secondary="#484D51" data-color-link="#A5B1B7"> &nbsp; </a></li>
+				<li><a class="badge" style="background-color:#2f343b" data-color-primary="#2f343b" data-color-secondary="#525a65" data-color-link="#FFFFFF"> &nbsp; </a></li>
+			</ul>
+		</li>
+		<li class="list-group-item" href="#">Change Primary Color
+			<div class="input-group colorpicker-component bscp" data-color="#54728c" data-color-format="hex" id="colr" data-colorpicker-guid="1">
+				<span class="input-group-addon"><i style="background-color: #54728c"></i></span>
+				<input type="text" value="#54728c" id="primaryColor" readonly="" class="form-control">
+
+			</div>
+		</li>
+		<li class="list-group-item" href="#">Change LeftSidebar Background
+			<div class="input-group colorpicker-component bscp" data-color="#f9f9f9" data-color-format="hex" id="Scolr" data-colorpicker-guid="2">
+				<span class="input-group-addon"><i style="background-color: #f9f9f9"></i></span>
+				<input type="text" value="#f9f9f9" id="secondaryColor" readonly="" class="form-control">
+
+			</div>
+		</li>
+		<li class="list-group-item" href="#">Change Leftsidebar Link Color
+			<div class="input-group colorpicker-component bscp" data-color="#54728c" data-color-format="hex" id="Lcolr" data-colorpicker-guid="4">
+				<span class="input-group-addon"><i style="background-color: #54728c"></i></span>
+				<input type="text" value="#54728c" id="linkColor" readonly="" class="form-control">
+
+			</div>
+		</li>
+		<li class="list-group-item" href="#">Change RightSidebar Background
+			<div class="input-group colorpicker-component bscp" data-color="#f9f9f9" data-color-format="hex" id="Rcolr" data-colorpicker-guid="3">
+				<span class="input-group-addon"><i style="background-color: #f9f9f9"></i></span>
+				<input type="text" value="#f9f9f9" id="rightsidebarColor" readonly="" class="form-control">
+
+			</div>
+		</li>
+
+</ul>
+
+
+
+</div>
+
+
+</div>	<!-- /.right-sidebar-holder -->
+</div>  <!-- /.right-sidebar -->
+
+
+</div> <!-- /.box-holder -->
+<!-- /.site-holder -->
+
+
+
+<!-- Load JS here for Faster site load =============================-->
+<script src="../../media/static/js/jquery-1.10.2.min1.js"></script>
+<script src="../../media/static/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="../../media/static/js/less-1.5.0.min.js"></script>
+<script src="../../media/static/js/jquery.ui.touch-punch.min.js"></script>
+<script src="../../media/static/js/bootstrap.min.js"></script>
+<script src="../../media/static/js/bootstrap-select.js"></script>
+<script src="../../media/static/js/bootstrap-switch.js"></script>
+<script src="../../media/static/js/jquery.tagsinput.js"></script>
+<script src="../../media/static/js/jquery.placeholder.js"></script>
+<script src="../../media/static/js/bootstrap-typeahead.js"></script>
+<script src="../../media/static/js/application.js"></script>
+<script src="../../media/static/js/moment.min.js"></script>
+<script src="../../media/static/js/jquery.dataTables.min.js"></script>
+<script src="../../media/static/js/jquery.sortable.js"></script>
+<script type="text/javascript" src="../../media/static/js/jquery.gritter.js"></script>
+<script src="../../media/static/js/jquery.nicescroll.min.js"></script>
+<script src="../../media/static/js/prettify.min.js"></script>
+<script src="../../media/static/js/jquery.noty.js"></script>
+<script src="../../media/static/js/bic_calendar.js"></script>
+<script src="../../media/static/js/jquery.accordion.js"></script>
+<script src="../../media/static/js/skylo.js"></script>
+
+<script src="../../media/static/js/theme-options.js"></script>
+
+
+<script src="../../media/static/js/bootstrap-progressbar.js"></script>
+<script src="../../media/static/js/bootstrap-progressbar-custom.js"></script>
+<script src="../../media/static/js/bootstrap-colorpicker.min.js"></script>
+<script src="../../media/static/js/bootstrap-colorpicker-custom.js"></script>
+
+
+
+<script src="../../media/static/js/raphael-min.js"></script>
+<script src="../../media/static/js/morris-0.4.3.min.js"></script>
+<script src="../../media/static/js/morris-custom.js"></script>
+
+<script src="../../media/static/js/jquery.sparkline.min.js"></script>
+
+<!-- NVD3 graphs  =============================-->
+<script src="../../media/static/js/d3.v3.js"></script>
+<script src="../../media/static/js/nv.d3.js"></script>
+<script src="../../media/static/js/legend.js"></script>
+<script src="../../media/static/js/pie.js"></script>
+<script src="../../media/static/js/pieChart.js"></script>
+<script src="../../media/static/js/utils.js"></script>
+<script src="../../media/static/js/sample.nvd3.js"></script>
+
+
+<!-- Core Jquery File  =============================-->
+<script src="../../media/static/js/core.js"></script><ul class="typeahead dropdown-menu" style="display: none;"></ul><ul class="typeahead dropdown-menu" style="display: none;"></ul>
+<script src="../../media/static/js/dashboard-custom.js"></script>
+
+
+
+<div class="colorpicker dropdown-menu" data-colorpicker-guid="1"><div class="colorpicker-saturation" style="background-color: rgb(0, 137, 255);"><i style="left: 40px; top: 45.098px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 42.2619px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="2"><div class="colorpicker-saturation" style="background-color: rgb(255, 0, 0);"><i style="left: 0px; top: 2.35294px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 0px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="3"><div class="colorpicker-saturation" style="background-color: rgb(255, 0, 0);"><i style="left: 0px; top: 2.35294px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 0px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="4"><div class="colorpicker-saturation" style="background-color: rgb(0, 137, 255);"><i style="left: 40px; top: 45.098px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 42.2619px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div id="ascrail2000" class="nicescroll-rails" style="width: 7px; z-index: 1000; cursor: default; position: absolute; top: 0px; left: 13px; height: 20px; display: none;"><div style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(84, 114, 140); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails" style="height: 7px; z-index: 1000; top: 13px; left: 0px; position: absolute; cursor: default; display: none;"><div style="position: relative; top: 0px; height: 5px; width: 0px; background-color: rgb(84, 114, 140); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div>
+
+    <div class="colorpicker dropdown-menu" data-colorpicker-guid="1"><div class="colorpicker-saturation" style="background-color: rgb(0, 137, 255);"><i style="left: 40px; top: 45.098px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 42.2619px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="2"><div class="colorpicker-saturation" style="background-color: rgb(255, 0, 0);"><i style="left: 0px; top: 2.35294px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 0px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="3"><div class="colorpicker-saturation" style="background-color: rgb(255, 0, 0);"><i style="left: 0px; top: 2.35294px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 0px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="4"><div class="colorpicker-saturation" style="background-color: rgb(0, 137, 255);"><i style="left: 40px; top: 45.098px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 42.2619px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div id="ascrail2001" class="nicescroll-rails" style="width: 7px; z-index: 1000; cursor: default; position: absolute; top: 135.957px; left: 13px; height: 20px; display: none;"><div style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(84, 114, 140); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div><div id="ascrail2001-hr" class="nicescroll-rails" style="height: 7px; z-index: 1000; top: 148.957px; left: 0px; position: absolute; cursor: default; display: none;"><div style="position: relative; top: 0px; height: 5px; width: 0px; background-color: rgb(84, 114, 140); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div>
+
+    <div class="colorpicker dropdown-menu" data-colorpicker-guid="1"><div class="colorpicker-saturation" style="background-color: rgb(0, 137, 255);"><i style="left: 40px; top: 45.098px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 42.2619px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="2"><div class="colorpicker-saturation" style="background-color: rgb(255, 0, 0);"><i style="left: 0px; top: 2.35294px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 0px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="3"><div class="colorpicker-saturation" style="background-color: rgb(255, 0, 0);"><i style="left: 0px; top: 2.35294px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 0px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="4"><div class="colorpicker-saturation" style="background-color: rgb(0, 137, 255);"><i style="left: 40px; top: 45.098px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 42.2619px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div id="ascrail2002" class="nicescroll-rails" style="width: 7px; z-index: 1000; cursor: default; position: absolute; top: 0px; left: 13px; height: 20px; display: none;"><div style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(84, 114, 140); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div><div id="ascrail2002-hr" class="nicescroll-rails" style="height: 7px; z-index: 1000; top: 13px; left: 0px; position: absolute; cursor: default; display: none;"><div style="position: relative; top: 0px; height: 5px; width: 0px; background-color: rgb(84, 114, 140); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div>
+
+    <div class="colorpicker dropdown-menu" data-colorpicker-guid="1"><div class="colorpicker-saturation" style="background-color: rgb(0, 137, 255);"><i style="left: 40px; top: 45.098px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 42.2619px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="2"><div class="colorpicker-saturation" style="background-color: rgb(255, 0, 0);"><i style="left: 0px; top: 2.35294px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 0px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="3"><div class="colorpicker-saturation" style="background-color: rgb(255, 0, 0);"><i style="left: 0px; top: 2.35294px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 0px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="4"><div class="colorpicker-saturation" style="background-color: rgb(0, 137, 255);"><i style="left: 40px; top: 45.098px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 42.2619px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div id="ascrail2003" class="nicescroll-rails" style="width: 7px; z-index: 1000; cursor: default; position: absolute; top: 0px; left: 13px; height: 20px; display: none;"><div style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(84, 114, 140); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div><div id="ascrail2003-hr" class="nicescroll-rails" style="height: 7px; z-index: 1000; top: 13px; left: 0px; position: absolute; cursor: default; display: none;"><div style="position: relative; top: 0px; height: 5px; width: 0px; background-color: rgb(84, 114, 140); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div>
+
+    <div class="colorpicker dropdown-menu" data-colorpicker-guid="1"><div class="colorpicker-saturation" style="background-color: rgb(0, 137, 255);"><i style="left: 40px; top: 45.098px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 42.2619px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="2"><div class="colorpicker-saturation" style="background-color: rgb(255, 0, 0);"><i style="left: 0px; top: 2.35294px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 0px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="3"><div class="colorpicker-saturation" style="background-color: rgb(255, 0, 0);"><i style="left: 0px; top: 2.35294px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 0px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="4"><div class="colorpicker-saturation" style="background-color: rgb(0, 137, 255);"><i style="left: 40px; top: 45.098px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 42.2619px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div id="ascrail2004" class="nicescroll-rails" style="width: 7px; z-index: 1000; cursor: default; position: absolute; top: 0px; left: 13px; height: 20px; display: none;"><div style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(84, 114, 140); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div><div id="ascrail2004-hr" class="nicescroll-rails" style="height: 7px; z-index: 1000; top: 13px; left: 0px; position: absolute; cursor: default; display: none;"><div style="position: relative; top: 0px; height: 5px; width: 0px; background-color: rgb(84, 114, 140); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div>
+
+    <div class="colorpicker dropdown-menu" data-colorpicker-guid="1"><div class="colorpicker-saturation" style="background-color: rgb(0, 137, 255);"><i style="left: 40px; top: 45.098px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 42.2619px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="2"><div class="colorpicker-saturation" style="background-color: rgb(255, 0, 0);"><i style="left: 0px; top: 2.35294px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 0px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="3"><div class="colorpicker-saturation" style="background-color: rgb(255, 0, 0);"><i style="left: 0px; top: 2.35294px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 0px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu" data-colorpicker-guid="4"><div class="colorpicker-saturation" style="background-color: rgb(0, 137, 255);"><i style="left: 40px; top: 45.098px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 42.2619px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div id="ascrail2005" class="nicescroll-rails" style="width: 7px; z-index: 1000; cursor: default; position: absolute; top: 0px; left: 13px; height: 20px; display: none;"><div style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(84, 114, 140); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div><div id="ascrail2005-hr" class="nicescroll-rails" style="height: 7px; z-index: 1000; top: 13px; left: 0px; position: absolute; cursor: default; display: none;"><div style="position: relative; top: 0px; height: 5px; width: 0px; background-color: rgb(84, 114, 140); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div></body>
+
+    </html>

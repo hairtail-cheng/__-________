@@ -1,0 +1,64 @@
+	<!DOCTYPE html>
+
+    <html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>你所热爱的</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Loading Bootstrap -->
+		<link href="../../media/static/css/bootstrap.css" rel="stylesheet">
+
+		<!-- Loading Stylesheets -->    
+		<link href="../../media/static/css/font-awesome.css" rel="stylesheet">
+		<link href="../../media/static/css/style.css" rel="stylesheet" type="text/css">
+
+		<!-- Loading Custom Stylesheets -->    
+		<link href="../../media/static/css/custom.css" rel="stylesheet">
+        <style>
+            .box-holder {
+    min-height: 600px !important;
+}
+        </style>
+  </head>
+
+<body style="background: rgb(235,239,242)" data-new-gr-c-s-check-loaded="14.1001.0" data-gr-ext-installed="">
+<div class="col-md-6">
+    <form class="form-horizontal" role="form" method="POST">
+  <div class="form-group">
+    <label for="firstname" class="col-sm-2 control-label">用户名</label>
+    <div class="col-sm-10" style="margin-right: 50px" >
+      <input type="text" class="form-control" name="name" placeholder="请输入用户名">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastname" class="col-sm-2 control-label">密码</label>
+    <div class="col-sm-10" style="margin-right: 50px">
+      <input type="password" class="form-control" name="password" placeholder="请输入密码">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    </div>
+  </div>
+  <div class="form-group">
+<script type="text/javascript">
+ function logout(){
+       var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+        httpRequest.open('GET', 'http://127.0.0.1:8000/user/login/?ccd=1', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+        httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+       return false
+ }
+
+</script>
+    <div class="col-sm-offset-2 col-sm-10" align="right" style="margin-right: 60px" >
+      {{ result }} &emsp;<button onclick="logout()" class="btn btn-default">退出登录</button>
+        <button type="submit" class="btn btn-default">登录</button>
+    </div>
+  </div>
+</form>
+</div>
+
+
+</body>
+    </html>
